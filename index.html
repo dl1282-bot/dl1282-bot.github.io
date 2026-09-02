@@ -4,237 +4,378 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Duy Le - Portfolio</title>
+    <!-- Importing Poppins font to match the modern, clean design in the mockup -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* Bank-inspired professional theme */
         :root {
-            --primary-navy: #002147;
-            --secondary-blue: #0056b3;
-            --background-grey: #f4f6f8;
-            --text-main: #333333;
-            --text-muted: #555555;
-            --border-color: #e1e4e8;
+            --primary-blue: #4275fa;
+            --text-dark: #111827;
+            --text-muted: #6b7280;
+            --bg-color: #ffffff;
+            --section-bg: #f9fafb;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
             line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-grey);
-            color: var(--text-main);
-        }
-
-        header {
-            background-color: var(--primary-navy);
-            color: white;
-            padding: 4rem 2rem;
-            text-align: center;
-            border-bottom: 4px solid var(--secondary-blue);
-        }
-
-        .headshot {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid white;
-            margin-bottom: 1.5rem;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-            letter-spacing: -0.5px;
-        }
-
-        header p {
-            font-size: 1.15rem;
-            max-width: 750px;
-            margin: 1rem auto 0;
-            color: #d1d9e6;
-            line-height: 1.5;
         }
 
         .container {
-            max-width: 850px;
-            margin: 3rem auto;
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 0 2rem;
         }
 
-        section {
-            background: white;
-            padding: 2.5rem;
-            margin-bottom: 2rem;
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        /* --- Navigation --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 0;
         }
 
-        h2 {
-            color: var(--primary-navy);
+        .logo {
             font-size: 1.5rem;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 0.75rem;
-            margin-top: 0;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-decoration: none;
         }
 
-        /* Skills Section */
-        .skills-list {
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 0.95rem;
+            position: relative;
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary-blue);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 75vh;
+            padding-bottom: 2rem;
+        }
+
+        .hero-text {
+            flex: 1;
+            padding-right: 2rem;
+        }
+
+        .hero-text h1 {
+            font-size: 4.5rem;
+            line-height: 1.1;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        .text-blue {
+            color: var(--primary-blue);
+        }
+
+        .hero-statement {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 550px;
+            margin-bottom: 2.5rem;
+            font-weight: 400;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 0.8rem 2.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #325ecc;
+        }
+
+        /* Blob Image Wrapper */
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .blob-wrapper {
+            width: 450px;
+            height: 450px;
+            background-color: var(--primary-blue);
+            border-radius: 50% 60% 40% 50% / 60% 50% 60% 40%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 20px 40px rgba(66, 117, 250, 0.2);
+        }
+
+        .blob-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* --- Sections --- */
+        section {
+            padding: 5rem 0;
+        }
+
+        .bg-light {
+            background-color: var(--section-bg);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        /* Skills */
+        .skills-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
-            list-style: none;
-            padding: 0;
-            margin: 0;
+            justify-content: center;
+            gap: 1rem;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .skills-list li {
+        .skill-pill {
             background-color: white;
-            color: var(--primary-navy);
-            border: 1px solid var(--primary-navy);
-            padding: 0.5rem 1.25rem;
-            border-radius: 2px;
+            color: var(--text-dark);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 1px solid #eaeaea;
+        }
+
+        /* Works / Projects */
+        .works-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .work-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            border: 1px solid #eaeaea;
+        }
+
+        .work-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .work-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .work-meta {
+            text-align: right;
             font-size: 0.9rem;
+            color: var(--primary-blue);
             font-weight: 600;
         }
 
-        /* Experience Section */
-        .experience-item {
-            margin-bottom: 2rem;
+        .work-desc {
+            color: var(--text-muted);
+            font-size: 1rem;
         }
 
-        .experience-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .experience-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 0.5rem;
-            flex-wrap: wrap;
-        }
-
-        .experience-header h3 {
-            margin: 0;
-            color: var(--primary-navy);
-            font-size: 1.2rem;
-        }
-
-        .experience-meta {
-            font-size: 0.9rem;
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 0;
             color: var(--text-muted);
             font-weight: 500;
         }
 
-        .experience-item p {
-            margin: 0;
-            color: var(--text-main);
-            font-size: 0.95rem;
-        }
-
-        footer {
-            text-align: center;
-            padding: 2rem;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            background-color: white;
-            border-top: 1px solid var(--border-color);
-        }
-
         footer a {
-            color: var(--secondary-blue);
+            color: var(--primary-blue);
             text-decoration: none;
-            font-weight: 600;
         }
 
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 600px) {
-            .experience-header {
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                gap: 3rem;
+                padding-top: 2rem;
+            }
+            .hero-text {
+                padding-right: 0;
+            }
+            .hero-image {
+                justify-content: center;
+            }
+            .blob-wrapper {
+                width: 320px;
+                height: 320px;
+            }
+            .nav-links {
+                display: none; /* Simplifies mobile view for the assignment */
+            }
+            .work-header {
                 flex-direction: column;
             }
-            .experience-meta {
-                margin-top: 0.25rem;
+            .work-meta {
+                text-align: left;
+                margin-top: 0.5rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <img src="headshot.jpg" alt="Duy Le" class="headshot">
-        <h1>Duy Le</h1>
-        <p>I'm originally from Vietnam and am currently a Finance and Data Science student at Rutgers University, transforming complex datasets into compelling, high-impact investment narratives.</p>
-    </header>
-
     <div class="container">
-        
-        <section id="skills">
-            <h2>Technical & Professional Skills</h2>
-            <ul class="skills-list">
-                <li>Python</li>
-                <li>Java</li>
-                <li>SQL</li>
-                <li>Tableau</li>
-                <li>Advanced Excel</li>
-                <li>Financial Valuation</li>
-                <li>Due Diligence</li>
-                <li>Corporate Finance</li>
+        <!-- Navigation -->
+        <nav>
+            <a href="#" class="logo">Duy Le</a>
+            <ul class="nav-links">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#works">Works</a></li>
+                <li><a href="https://linkedin.com/in/lecongduy/" target="_blank">Contact</a></li>
             </ul>
-        </section>
+        </nav>
 
-        <section id="experience">
-            <h2>Recent Projects & Professional Experience</h2>
+        <!-- Hero Section -->
+        <header class="hero">
+            <div class="hero-text">
+                <h1>Hi,<br>I'm <span class="text-blue">Duy Le</span><br>Finance & Data</h1>
+                
+                <!-- Personal Statement (Rubric Requirement) -->
+                <p class="hero-statement">
+                    I'm originally from Vietnam and am currently a Finance and Data Science student at Rutgers University, transforming complex datasets into compelling, high-impact investment narratives.
+                </p>
+                
+                <a href="https://linkedin.com/in/lecongduy/" target="_blank" class="btn">Contact</a>
+            </div>
             
-            <div class="experience-item">
-                <div class="experience-header">
-                    <h3>Sellside Group, LLC | Junior M&A Analyst</h3>
-                    <span class="experience-meta">Dallas, TX &bull; Jun 2026 - Aug 2026</span>
+            <div class="hero-image">
+                <div class="blob-wrapper">
+                    <img src="headshot.jpg" alt="Duy Le">
                 </div>
-                <p>Supported active buyside M&A mandates by building detailed Confidential Information Memorandums (CIMs) that visualized client financials and growth drivers in the tech sector.</p>
             </div>
-
-            <div class="experience-item">
-                <div class="experience-header">
-                    <h3>Tigbourne Capital | Private Equity Intern, Head of Asia</h3>
-                    <span class="experience-meta">Remote, U.S. &bull; Jan 2026 - May 2026</span>
-                </div>
-                <p>Spearheaded Asia origination efforts by implementing a proprietary Enhanced Oil Recovery (EOR) model across 50+ companies to project unlocked dollar values for C-suite clients.</p>
-            </div>
-
-            <div class="experience-item">
-                <div class="experience-header">
-                    <h3>KPMG | Risk Consulting Summer Analyst</h3>
-                    <span class="experience-meta">Hanoi, Vietnam &bull; Jun 2025 - Aug 2025</span>
-                </div>
-                <p>Translated over 500 pages of internal documents to map revenue-to-record workflows, ultimately identifying seven control gaps to improve client-side financial reporting.</p>
-            </div>
-
-            <div class="experience-item">
-                <div class="experience-header">
-                    <h3>Rutgers University | International Orientation Leader</h3>
-                    <span class="experience-meta">New Brunswick, NJ &bull; Apr 2025 - Sep 2025</span>
-                </div>
-                <p>Led orientation programming for 200+ international students, running campus tours and workshops to ease cultural adjustment and lower common FAQ requests by 50%.</p>
-            </div>
-
-            <div class="experience-item">
-                <div class="experience-header">
-                    <h3>MB Securities | Investment Banking Summer Analyst</h3>
-                    <span class="experience-meta">Hanoi, Vietnam &bull; Jun 2023 - Aug 2023</span>
-                </div>
-                <p>Built financial valuation models for live projects and executed due diligence by processing 50+ documents to enable pre-deal assessments for international clients.</p>
-            </div>
-        </section>
-
+        </header>
     </div>
+
+    <!-- Skills Section -->
+    <section id="skills" class="bg-light">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-container">
+                <div class="skill-pill">Python</div>
+                <div class="skill-pill">Java</div>
+                <div class="skill-pill">SQL</div>
+                <div class="skill-pill">Tableau</div>
+                <div class="skill-pill">Advanced Excel</div>
+                <div class="skill-pill">Financial Valuation</div>
+                <div class="skill-pill">Due Diligence</div>
+                <div class="skill-pill">Corporate Finance</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Works / Experience Section -->
+    <section id="works">
+        <div class="container">
+            <h2 class="section-title">Works & Experience</h2>
+            <div class="works-grid">
+                
+                <div class="work-card">
+                    <div class="work-header">
+                        <div class="work-title">Sellside Group, LLC | Junior M&A Analyst</div>
+                        <div class="work-meta">Dallas, TX<br>Jun 2026 - Aug 2026</div>
+                    </div>
+                    <p class="work-desc">Supported active buyside M&A mandates by building detailed Confidential Information Memorandums (CIMs) that visualized client financials and growth drivers in the tech sector.</p>
+                </div>
+
+                <div class="work-card">
+                    <div class="work-header">
+                        <div class="work-title">Tigbourne Capital | Private Equity Intern</div>
+                        <div class="work-meta">Remote, U.S.<br>Jan 2026 - May 2026</div>
+                    </div>
+                    <p class="work-desc">Spearheaded Asia origination efforts by implementing a proprietary Enhanced Oil Recovery (EOR) model across 50+ companies to project unlocked dollar values for C-suite clients.</p>
+                </div>
+
+                <div class="work-card">
+                    <div class="work-header">
+                        <div class="work-title">KPMG | Risk Consulting Summer Analyst</div>
+                        <div class="work-meta">Hanoi, Vietnam<br>Jun 2025 - Aug 2025</div>
+                    </div>
+                    <p class="work-desc">Translated over 500 pages of internal documents to map revenue-to-record workflows, ultimately identifying seven control gaps to improve client-side financial reporting.</p>
+                </div>
+
+                <div class="work-card">
+                    <div class="work-header">
+                        <div class="work-title">Rutgers University | International Orientation Leader</div>
+                        <div class="work-meta">New Brunswick, NJ<br>Apr 2025 - Sep 2025</div>
+                    </div>
+                    <p class="work-desc">Led orientation programming for 200+ international students, running campus tours and workshops to ease cultural adjustment and lower common FAQ requests by 50%.</p>
+                </div>
+
+                <div class="work-card">
+                    <div class="work-header">
+                        <div class="work-title">MB Securities | Investment Banking Summer Analyst</div>
+                        <div class="work-meta">Hanoi, Vietnam<br>Jun 2023 - Aug 2023</div>
+                    </div>
+                    <p class="work-desc">Built financial valuation models for live projects and executed due diligence by processing 50+ documents to enable pre-deal assessments for international clients.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
 
     <footer>
         <p>&copy; 2026 Duy Le. All rights reserved. | <a href="https://linkedin.com/in/lecongduy/" target="_blank">LinkedIn</a></p>
