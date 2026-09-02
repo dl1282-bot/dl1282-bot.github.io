@@ -3,108 +3,242 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[Your Name] - Personal Portfolio</title>
+    <title>Duy Le - Portfolio</title>
     <style>
-        /* CSS for a clean, professional design */
+        /* Bank-inspired professional theme */
         :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --bg-color: #f8f9fa;
-            --text-color: #333;
+            --primary-navy: #002147;
+            --secondary-blue: #0056b3;
+            --background-grey: #f4f6f8;
+            --text-main: #333333;
+            --text-muted: #555555;
+            --border-color: #e1e4e8;
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            background-color: var(--background-grey);
+            color: var(--text-main);
         }
 
         header {
-            background-color: var(--primary-color);
+            background-color: var(--primary-navy);
             color: white;
-            padding: 3rem 1rem;
+            padding: 4rem 2rem;
             text-align: center;
+            border-bottom: 4px solid var(--secondary-blue);
+        }
+
+        .headshot {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid white;
+            margin-bottom: 1.5rem;
         }
 
         header h1 {
             margin: 0;
             font-size: 2.5rem;
+            letter-spacing: -0.5px;
         }
 
         header p {
-            font-size: 1.2rem;
-            margin-top: 10px;
-            color: #ecf0f1;
+            font-size: 1.15rem;
+            max-width: 750px;
+            margin: 1rem auto 0;
+            color: #d1d9e6;
+            line-height: 1.5;
         }
 
         .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 2rem;
+            max-width: 850px;
+            margin: 3rem auto;
+            padding: 0 2rem;
         }
 
         section {
             background: white;
-            padding: 2rem;
+            padding: 2.5rem;
             margin-bottom: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
         }
 
         h2 {
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--secondary-color);
-            padding-bottom: 0.5rem;
+            color: var(--primary-navy);
+            font-size: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.75rem;
             margin-top: 0;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        /* Skills list styling */
+        /* Skills Section */
         .skills-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 12px;
             list-style: none;
             padding: 0;
+            margin: 0;
         }
 
         .skills-list li {
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-weight: bold;
+            background-color: white;
+            color: var(--primary-navy);
+            border: 1px solid var(--primary-navy);
+            padding: 0.5rem 1.25rem;
+            border-radius: 2px;
             font-size: 0.9rem;
+            font-weight: 600;
         }
 
-        /* Projects styling */
-        .project {
-            margin-bottom: 1.5rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid #eee;
+        /* Experience Section */
+        .experience-item {
+            margin-bottom: 2rem;
         }
 
-        .project:last-child {
-            border-bottom: none;
+        .experience-item:last-child {
             margin-bottom: 0;
-            padding-bottom: 0;
         }
 
-        .project h3 {
-            margin: 0 0 0.5rem 0;
-            color: var(--primary-color);
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
         }
 
-        .project a {
-            display: inline-block;
-            margin-top: 10px;
-            color: var(--secondary-color);
+        .experience-header h3 {
+            margin: 0;
+            color: var(--primary-navy);
+            font-size: 1.2rem;
+        }
+
+        .experience-meta {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .experience-item p {
+            margin: 0;
+            color: var(--text-main);
+            font-size: 0.95rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            background-color: white;
+            border-top: 1px solid var(--border-color);
+        }
+
+        footer a {
+            color: var(--secondary-blue);
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 600;
         }
 
-        .project a:hover {
+        footer a:hover {
             text-decoration: underline;
         }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .experience-header {
+                flex-direction: column;
+            }
+            .experience-meta {
+                margin-top: 0.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="headshot.jpg" alt="Duy Le" class="headshot">
+        <h1>Duy Le</h1>
+        <p>I'm originally from Vietnam and am currently a Finance and Data Science student at Rutgers University, transforming complex datasets into compelling, high-impact investment narratives.</p>
+    </header>
+
+    <div class="container">
+        
+        <section id="skills">
+            <h2>Technical & Professional Skills</h2>
+            <ul class="skills-list">
+                <li>Python</li>
+                <li>Java</li>
+                <li>SQL</li>
+                <li>Tableau</li>
+                <li>Advanced Excel</li>
+                <li>Financial Valuation</li>
+                <li>Due Diligence</li>
+                <li>Corporate Finance</li>
+            </ul>
+        </section>
+
+        <section id="experience">
+            <h2>Recent Projects & Professional Experience</h2>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3>Sellside Group, LLC | Junior M&A Analyst</h3>
+                    <span class="experience-meta">Dallas, TX &bull; Jun 2026 - Aug 2026</span>
+                </div>
+                <p>Supported active buyside M&A mandates by building detailed Confidential Information Memorandums (CIMs) that visualized client financials and growth drivers in the tech sector.</p>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3>Tigbourne Capital | Private Equity Intern, Head of Asia</h3>
+                    <span class="experience-meta">Remote, U.S. &bull; Jan 2026 - May 2026</span>
+                </div>
+                <p>Spearheaded Asia origination efforts by implementing a proprietary Enhanced Oil Recovery (EOR) model across 50+ companies to project unlocked dollar values for C-suite clients.</p>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3>KPMG | Risk Consulting Summer Analyst</h3>
+                    <span class="experience-meta">Hanoi, Vietnam &bull; Jun 2025 - Aug 2025</span>
+                </div>
+                <p>Translated over 500 pages of internal documents to map revenue-to-record workflows, ultimately identifying seven control gaps to improve client-side financial reporting.</p>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3>Rutgers University | International Orientation Leader</h3>
+                    <span class="experience-meta">New Brunswick, NJ &bull; Apr 2025 - Sep 2025</span>
+                </div>
+                <p>Led orientation programming for 200+ international students, running campus tours and workshops to ease cultural adjustment and lower common FAQ requests by 50%.</p>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3>MB Securities | Investment Banking Summer Analyst</h3>
+                    <span class="experience-meta">Hanoi, Vietnam &bull; Jun 2023 - Aug 2023</span>
+                </div>
+                <p>Built financial valuation models for live projects and executed due diligence by processing 50+ documents to enable pre-deal assessments for international clients.</p>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Duy Le. All rights reserved. | <a href="https://linkedin.com/in/lecongduy/" target="_blank">LinkedIn</a></p>
+    </footer>
+
+</body>
+</html>
